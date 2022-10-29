@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<div class="sidebar-wrapper">
+    <h2>Multiservicios Agroindustriales Ferrus</h2>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+      
+        {% if request.user.is_staff %}
+        <li class="nav-item"></li>
+        <a class="nav-link " href="{% url 'personalista' %}">Persona</a>
+      </li>
+      <li class="nav-item"></li>
+        <a class="nav-link " href="{% url 'empleadolista' %}">Empleado</a>
+      </li>
+     
+      {% endif %}
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'clientelista' %}">Cliente</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'articulolista' %}">Articulo</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'proveedoreslista' %}">Proveedor</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'materiallista' %}">Material</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'cotizacionlistado' %}">Cotizacion</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'ordencompralistado' %}">Orden de compra</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'ordentrabajolistado' %}">Orden de trabajo</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'enviolistado' %}">Envios</a>
+      </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'ventalistado' %}">Venta</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item active" >
+        <a  class="nav-link " href="#"> Usuario: {{ user.username}}</a>
+      </li>
+      <li class="nav-item active" >
+        <a  class="nav-link " href="{% url 'logout' %}">Cerrar sesion</a>
+      </li>
+      {% endif %}
+
+      
+      
+    </ul>
+  </div>
+</nav>

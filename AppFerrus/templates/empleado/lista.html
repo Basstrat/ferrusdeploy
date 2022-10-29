@@ -1,0 +1,30 @@
+{% extends 'baselista.html' %}
+
+{% block columnas %}
+<tr>
+  <th scope="col">Numero</th>
+  <th scope="col">Nombre</th>
+  <th scope="col">Puesto</th>
+  <th scope="col">Sueldo</th>
+  <th scope="col">Opciones</th>
+
+</tr>
+{% endblock %}
+
+{% block filas %}
+{% for p in object_list %}
+<tr>
+  <td>{{ p.id }} </td>
+  <td> {{ p.persona.nombre }}</td>
+  <td> {{ p.puestoempleado }}</td>
+  <td> {{ p.sueldo }}</td>
+ 
+  <td><a href="{% url 'empleadoeditarregistro' p.id %}" class="btn btn-primary btn-sm">Editar</a>
+    <a href="{% url 'empleadoeliminar' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+  </td>
+</tr> 
+
+{% endfor %}
+
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form method='post' action=".">
+    <div class="col-md-6">
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">
+              
+              {{ title }}
+            </h3>
+          </div>
+           <!--si en caso hay un error va tirar el div error-->
+          <div class="card-body">
+            {% csrf_token %} <!--token oara formulario-->
+            </div>
+            
+
+            <div class="alert alert-danger" role="alert"> <!--para mostrar error-->
+                ¿Estas seguro de eliminar el registro {{ object.id}}? 
+            </div>
+  
+          </div class="card-footer">
+  
+         <div>
+          <button type="submit" class="btn btn-success btn-flat">Confirmar </button>
+          <a href="{{ lista_url }}" class="btn btn-success btnTest">Cancelar</a>
+         </div>
+        </div>
+      
+</form>
+
+  {% endblock %} 
